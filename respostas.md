@@ -1,71 +1,30 @@
-# Lista de Exercícios 02 — Respostas e Códigos em Java
+1.
 
-## Questão 1 — Getters e setters
+Getters e setters são usados para manter o encapsulamento da classe. Em vez de deixar os atributos públicos, eles permitem controlar o acesso e validar os valores antes de alterar um atributo.
 
-### Resposta
-
-É uma boa prática usar getters e setters em vez de deixar os atributos públicos porque isso aplica o **encapsulamento**. Os atributos ficam protegidos e a classe pode controlar como seus dados são consultados ou alterados.
-
-Com atributos públicos, qualquer parte do programa poderia colocar um valor inválido diretamente no objeto. Com um setter, podemos validar o valor antes de modificar o atributo.
-
-### Exemplo em Java
+Exemplo:
 
 ```java
-public class Produto {
-    private double preco;
+private double preco;
 
-    public double getPreco() {
-        return preco;
-    }
+public double getPreco() {
+    return preco;
+}
 
-    public void setPreco(double preco) {
-        if (preco >= 0) {
-            this.preco = preco;
-        } else {
-            System.out.println("Preço inválido: não pode ser negativo.");
-        }
+public void setPreco(double preco) {
+    if (preco >= 0) {
+        this.preco = preco;
     }
 }
 ```
 
-Nesse exemplo, o preço não pode receber um valor negativo por meio do setter. Dessa forma, a classe consegue preservar a integridade do objeto.
+2.
 
----
+a) Título, autor, ISBN, editora, ano de publicação, gênero e disponibilidade.
 
-## Questão 2 — Sistema de controle de biblioteca
+b) A classe Livro é uma abstração porque representa no código apenas as características e comportamentos importantes de um livro para o sistema.
 
-### a) Informações relevantes de um livro
-
-Para um sistema de biblioteca, podemos considerar relevantes as seguintes informações:
-
-- título;
-- autor;
-- ISBN;
-- editora;
-- ano de publicação;
-- gênero;
-- quantidade de exemplares;
-- disponibilidade.
-
-Essas informações permitem identificar o livro e controlar sua utilização na biblioteca.
-
-### b) Por que `Livro` é uma abstração?
-
-A classe `Livro` é uma abstração porque representa no programa um objeto do mundo real por meio das características e comportamentos importantes para o sistema.
-
-Um livro físico possui muitos detalhes, mas o sistema não precisa representar todos eles. A classe seleciona apenas o que é relevante para o problema, como título, autor, ISBN e disponibilidade.
-
-### c) Pelo menos 3 métodos da classe `Livro`
-
-Alguns métodos que fazem sentido são:
-
-1. `emprestar()` — registra o empréstimo do livro e altera sua disponibilidade.
-2. `devolver()` — registra a devolução e torna o livro disponível novamente.
-3. `exibirInfo()` — apresenta as informações do livro.
-
-Outros métodos possíveis seriam `estaDisponivel()` e `alterarQuantidade()`.
-
-### Exemplo de classe em Java
+c) Alguns métodos seriam `emprestar()`, `devolver()` e `exibirInfo()`.
 
 ```java
 public class Livro {
@@ -104,15 +63,7 @@ public class Livro {
 }
 ```
 
----
-
-## Questão 3 — Classe `Produto`
-
-### Resposta
-
-A classe abaixo atende a todos os requisitos do enunciado: quatro atributos privados, construtor com quatro parâmetros, getters para todos os atributos, setter somente para `preco` com validação contra valores negativos e método `exibirInfo()`.
-
-### Código — `Produto.java`
+3.
 
 ```java
 public class Produto {
@@ -147,8 +98,6 @@ public class Produto {
     public void setPreco(double preco) {
         if (preco >= 0) {
             this.preco = preco;
-        } else {
-            System.out.println("Preço inválido: não pode ser negativo.");
         }
     }
 
@@ -161,19 +110,7 @@ public class Produto {
 }
 ```
 
-### Explicação
-
-Os atributos são `private`, portanto não podem ser modificados diretamente de fora da classe. Os getters permitem consultar os dados. O único setter é `setPreco()`, que rejeita valores menores que zero.
-
----
-
-## Questão 4 — Classe `ContaCorrente`
-
-### Resposta
-
-A implementação abaixo segue o enunciado: possui os três atributos privados, inicia o saldo em zero, limita saques e depósitos a R$ 10.000,00 por operação, impede valores de depósito não positivos, impede saques não positivos e não permite sacar mais do que o saldo disponível.
-
-### Código — `ContaCorrente.java`
+4.
 
 ```java
 public class ContaCorrente {
@@ -224,8 +161,6 @@ public class ContaCorrente {
     }
 }
 ```
-
-### Código — `Main.java`
 
 ```java
 import java.util.Scanner;
@@ -285,18 +220,3 @@ public class Main {
     }
 }
 ```
-
-### Explicação
-
-O programa solicita o número e o titular da conta. O saldo começa em zero. Depois, um menu é exibido repetidamente até o usuário escolher a opção 4.
-
-- **Sacar:** verifica se o valor é positivo, se não ultrapassa R$ 10.000,00 e se existe saldo suficiente.
-- **Depositar:** verifica se o valor é positivo e se não ultrapassa R$ 10.000,00.
-- **Consultar saldo:** mostra o saldo atual.
-- **Sair:** encerra o programa.
-
----
-
-# Conclusão
-
-Todas as quatro questões da lista foram respondidas. As questões teóricas possuem explicação e exemplos em Java, e as questões práticas possuem código completo e funcional.
